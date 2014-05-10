@@ -26,11 +26,13 @@ def print_metadata(metadata):
             print v.key, v.values[0].value
 
 #print type(p)
+
 def print_recursively(fields):
     f = fields.iteritems()
     for k,v in f:
-        print "%s=%s" % (k, v)
+        yield "%s=%s" % (k, v)
         if isinstance(v, GenericFieldSet):
+            print '#'
             print_recursively(v._fields)
 
 
@@ -42,7 +44,10 @@ def main(filename = "default_64.png"):
     print_metadata(metadata)
 
     fields = p._fields
-    print_recursively(fields)
+    print "fields: ", fields
+
+    for i in print_recursively(fields):
+        print i
 
 
 if __name__ == "__main__":
