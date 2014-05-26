@@ -40,6 +40,7 @@ def main(filename = "default_64.png"):
     filename, realname = unicodeFilename(filename), filename
 
     p = hachoir_parser.createParser(filename, realname)
+    print "Fields: ", p._fields
     metadata = extractMetadata(p)
     print_metadata(metadata)
 
