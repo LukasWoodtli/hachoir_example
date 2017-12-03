@@ -1,4 +1,4 @@
-__author__ = 'Boot'
+#!/usr/bin/env python
 
 
 import hachoir_parser
